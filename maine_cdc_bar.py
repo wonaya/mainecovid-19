@@ -57,9 +57,9 @@ x = np.arange(len(plot2name))  # the label locations
 width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width, plot2confirm, width, label='Confirmed')
-rects2 = ax.bar(x         , plot2pres, width, label='Presumptive')
-rects3 = ax.bar(x + width, plot2recover, width, label='Recoverd')
+rects1 = ax.bar(x - width, plot2confirm, width, label='Confirmed', color='Blue')
+rects2 = ax.bar(x         , plot2pres, width, label='Presumptive', color='Red')
+rects3 = ax.bar(x + width, plot2recover, width, label='Recoverd', color='Yellow')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_xticks(x)
@@ -79,6 +79,7 @@ def autolabel(rects):
 
 autolabel(rects1)
 autolabel(rects2)
+autolabel(rects3)
 
 fig.tight_layout()
 
