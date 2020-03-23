@@ -39,12 +39,15 @@ for t in rows[1][1] :
        test = []
        plot2name.append(name.split("\n")[1].strip("\r").strip("\t").strip(" "))
        plot2confirm.append(int(name.split("\n")[2].strip("\r").strip("\t").strip(" ")))
-       plot2pres.append(int(name.split("\n")[3].strip("\r").strip("\t").strip(" ")))
-       if name.split("\n")[4].strip("\t").strip() :
-           plot2recover.append(int(name.split("\n")[4].strip("\r").strip("\t").strip(" ")))
+       #if name.split("\n")[3].strip("\t").strip() :
+       #    plot2pres.append(int(name.split("\n")[3].strip("\r").strip("\t").strip(" ")))
+       #else : 
+       #    plot2pres.append(0)
+       if name.split("\n")[3].strip("\t").strip() :
+           plot2recover.append(int(name.split("\n")[3].strip("\r").strip("\t").strip(" ")))
        else :
            plot2recover.append(0)
-print plot2key, plot2name , plot2confirm , plot2pres, plot2recover
+#print plot2key, plot2name , plot2confirm , plot2pres, plot2recover
 #count = plot1val
 #bars= (plot1key)
 #y_pos = np.arange(len(bars))
@@ -58,8 +61,8 @@ width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
 rects1 = ax.bar(x - width, plot2confirm, width, label='Confirmed', color='Blue')
-rects2 = ax.bar(x         , plot2pres, width, label='Presumptive', color='Red')
-rects3 = ax.bar(x + width, plot2recover, width, label='Recoverd', color='Yellow')
+#rects2 = ax.bar(x         , plot2pres, width, label='Presumptive', color='Red')
+rects3 = ax.bar(x, plot2recover, width, label='Recoverd', color='Yellow')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_xticks(x)
@@ -78,7 +81,7 @@ def autolabel(rects):
 
 
 autolabel(rects1)
-autolabel(rects2)
+#autolabel(rects2)
 autolabel(rects3)
 
 fig.tight_layout()
